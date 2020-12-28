@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   main_3rd_arg_explained.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moerradi <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/29 00:00:25 by moerradi          #+#    #+#             */
-/*   Updated: 2020/12/29 00:38:31 by moerradi         ###   ########.fr       */
+/*   Created: 2020/12/28 23:57:33 by moerradi          #+#    #+#             */
+/*   Updated: 2020/12/28 23:58:25 by moerradi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <sys/wait.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <signal.h>
-# include <dirent.h>
-# include <stdbool.h>
-# include "../libft/libft.h"
-
-int		echo(char **args);
-int		cd(char **args);
-int		unset(char **args);
-int		export(char **args);
-
-
-#endif
+// the last argument of main '**env' magically passes all the env variables from
+//the system shell to our program as displayed below it is terminated with a NULL to indicate it's end
+int main(int argc, char **argv, char **env)
+{
+	(void)argc;
+	(void)argv;
+	int i = 0;
+	while (env[i])
+		printf("%s\n", env[i++]);
+	return (0);
+}
