@@ -6,7 +6,7 @@
 /*   By: moerradi <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 00:00:25 by moerradi          #+#    #+#             */
-/*   Updated: 2020/12/29 00:38:31 by moerradi         ###   ########.fr       */
+/*   Updated: 2020/12/29 01:00:36 by moerradi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int		echo(char **args);
 int		cd(char **args);
 int		unset(char **args);
 int		export(char **args);
+int		pwd(char **args);
+int		env(char **args);
 
 
 #endif
