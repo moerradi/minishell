@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moerradi <moerradi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: moerradi <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 18:24:02 by moerradi          #+#    #+#             */
-/*   Updated: 2020/12/29 19:47:47 by moerradi         ###   ########.fr       */
+/*   Updated: 2020/12/29 21:00:37 by moerradi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,20 @@ void	handle_sigs(int sig)
 
 bool	check_builtins(char **args)
 {
-	if (ft_strcmp("cd",args[0]))
-		return (cd(args + 1));
-	if (ft_strcmp("echo", args[0]))
-		return (echo(args + 1));
-	if (ft_strcmp("env", args[0]))
-		return (env(args + 1));
-	if (ft_strcmp("export", args[0]))
-		return (export(args + 1));
-	if (ft_strcmp("pwd", args[0]))
-		return (export(args + 1));
-	if (ft_strcmp("unset", args[0]))
-		return (unset(args + 1));
-	// handle exit ()...
+	// if (!ft_strcmp("cd",args[0]))
+	// 	return (cd(args + 1));
+	// if (!ft_strcmp("echo", args[0]))
+	// 	return (echo(args + 1));
+	// if (!ft_strcmp("env", args[0]))
+	// 	return (env(args + 1));
+	// if (!ft_strcmp("export", args[0]))
+	// 	return (export(args + 1));
+	// if (!ft_strcmp("pwd", args[0]))
+	// 	return (export(args + 1));
+	// if (!ft_strcmp("unset", args[0]))
+	// 	return (unset(args + 1));
+	if (!ft_strcmp("exit", args[0]))
+		return (bash_exit(args + 1));
 }
 
 bool	send_command(char *command)
@@ -66,7 +67,7 @@ int 	main(int argc, char **argv, char **env)
 	char	*line;
 	char	**pipes;
 	char	**commands;
-	char	**tokens
+	char	**tokens;
 	(void)argc;
 	(void)argv;
 	while (true)
