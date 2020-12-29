@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moerradi <moerradi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: moerradi <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 03:23:21 by moerradi          #+#    #+#             */
-/*   Updated: 2020/10/20 03:23:33 by moerradi         ###   ########.fr       */
+/*   Updated: 2020/12/29 01:42:06 by moerradi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int		get_next_line(int fd, char **line)
 
 	if (!(rest[fd] = buffered_read(fd, rest[fd])))
 		return (-1);
-	if (((temp = ft_strchr_s(rest[fd], '\n'))) > 0)
+	if (((temp = ft_strchr_s(rest[fd], '\n'))))
 	{
 		newline_pos = temp - rest[fd];
 		temp = ft_strdup(temp + 1);
