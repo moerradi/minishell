@@ -6,7 +6,7 @@
 /*   By: moerradi <moerradi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 00:00:25 by moerradi          #+#    #+#             */
-/*   Updated: 2020/12/29 14:33:04 by moerradi         ###   ########.fr       */
+/*   Updated: 2020/12/29 19:16:09 by moerradi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@
 # include <stdbool.h>
 # include "../libft/libft.h"
 
-void	print_cwd(void);
+int		ft_strslen(char **strs);
+void	print_cwd(bool isred);
+int		get_cmd_line(char **line);
 int		echo(char **args);
 int		cd(char **args);
 int		unset(char **args);

@@ -6,7 +6,7 @@
 /*   By: moerradi <moerradi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 15:48:58 by moerradi          #+#    #+#             */
-/*   Updated: 2020/12/29 16:03:44 by moerradi         ###   ########.fr       */
+/*   Updated: 2020/12/29 17:09:47 by moerradi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,31 +51,31 @@ static char	*buffered_read(const int fd, char *rest)
 	return (rest);
 }
 
-int		get_cmd_line(int fd, char **line)
+int		get_cmd_line(char **line)
 {
 	char			*temp;
-	static char		*rest[ULILMIT];
+	static char		*rest;
 	int				newline_pos;
 
-	if (!(rest[fd] = buffered_read(fd, rest[fd])))
+	if (!(rest = buffered_read(1, rest)))
 		return (-1);
-	if (((temp = ft_strchr_s(rest[fd], '\n'))))
+	if (((temp = ft_strchr_s(rest, '\n'))))
 	{
-		newline_pos = temp - rest[fd];
+		newline_pos = temp - rest;
 		temp = ft_strdup(temp + 1);
-		if (!temp || !(*line = ft_strndup(rest[fd], newline_pos)))
+		if (!temp || !(*line = ft_strndup(rest, newline_pos)))
 			return (-1);
-		free(rest[fd]);
-		rest[fd] = ft_strdup(temp);
+		free(rest);
+		rest = ft_strdup(temp);
 		free(temp);
 		return (1);
 	}
 	else
 	{
-		if ((*line = ft_strdup(rest[fd])) == NULL)
+		if ((*line = ft_strdup(rest)) == NULL)
 			return (-1);
-		free(rest[fd]);
-		rest[fd] = NULL;
+		free(rest);
+		rest = NULL;
 		return (0);
 	}
 }
