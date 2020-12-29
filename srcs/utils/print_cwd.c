@@ -6,7 +6,7 @@
 /*   By: moerradi <moerradi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 14:19:48 by moerradi          #+#    #+#             */
-/*   Updated: 2020/12/29 14:45:48 by moerradi         ###   ########.fr       */
+/*   Updated: 2020/12/29 14:48:48 by moerradi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ void	print_cwd(void)
 	ft_putstr_fd("\033[0;32m➜\033[0m  ", 1);
 	ft_putstr_fd("\033[1;36m", 1);
 	ft_putstr_fd(ft_strrchr(cwd,'/') + 1, 1);
-	ft_putstr_fd("\033[0m ", 1);
+	ft_putstr_fd("\033[0m[MSBETA] ", 1);
 }

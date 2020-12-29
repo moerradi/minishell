@@ -6,7 +6,7 @@
 /*   By: moerradi <moerradi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 18:24:02 by moerradi          #+#    #+#             */
-/*   Updated: 2020/12/29 14:37:38 by moerradi         ###   ########.fr       */
+/*   Updated: 2020/12/29 16:48:09 by moerradi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,20 @@ void	handle_sigs(int sig)
 
 int main(int argc, char **argv, char **env)
 {
+	char	*line;
+	char	**pipes;
+	char	**commands;
+
 	(void)argc;
 	(void)argv;
-	char	*line;
-
 	while (true)
 	{
 		signal(SIGINT, handle_sigs);
 		print_cwd();
-		if (get_next_line(0, &line) == 0)
-		{
-			break;
-		}
+		if (get_cmd_line(0, &line) == 0)
+			if (ft_strlen(line) ==  0)
+				break;
+		pipes = ft_split();
 	}
 	//free_env();
 	return (0);
