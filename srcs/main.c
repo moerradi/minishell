@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moerradi <marvin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moerradi <moerradi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 18:24:02 by moerradi          #+#    #+#             */
-/*   Updated: 2020/12/29 01:29:27 by moerradi         ###   ########.fr       */
+/*   Updated: 2020/12/29 14:37:38 by moerradi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,13 @@
 //chdir, stat, lstat, fstat, execve, dup, dup2, pipe,
 //opendir, readdir, closedir, strerror, errno
 
-void	handle_sigint(int sig)
+void	handle_sigs(int sig)
 {
-	//if (sig = sigin)
-		printf("hello %i\n", sig);
+	if (sig == SIGINT)
+	{
+		ft_putstr_fd("\n", 1);
+		print_cwd();
+	}
 }
 
 int main(int argc, char **argv, char **env)
@@ -32,9 +35,12 @@ int main(int argc, char **argv, char **env)
 
 	while (true)
 	{
-		// print_cwd();
-		//signal(SIG, handle_sigint);
-		get_next_line(0, &line);
+		signal(SIGINT, handle_sigs);
+		print_cwd();
+		if (get_next_line(0, &line) == 0)
+		{
+			break;
+		}
 	}
 	//free_env();
 	return (0);

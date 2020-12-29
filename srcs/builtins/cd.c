@@ -3,11 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moerradi <marvin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moerradi <moerradi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 01:05:04 by moerradi          #+#    #+#             */
-/*   Updated: 2020/12/29 01:05:45 by moerradi         ###   ########.fr       */
+/*   Updated: 2020/12/29 14:33:12 by moerradi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../../includes/minishell.h"
 
 int		cd(char **args);
