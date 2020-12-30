@@ -6,7 +6,7 @@
 /*   By: moerradi <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 18:24:02 by moerradi          #+#    #+#             */
-/*   Updated: 2020/12/29 21:00:37 by moerradi         ###   ########.fr       */
+/*   Updated: 2020/12/31 00:16:43 by moerradi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	handle_sigs(int sig)
 
 bool	check_builtins(char **args)
 {
-	// if (!ft_strcmp("cd",args[0]))
-	// 	return (cd(args + 1));
+	if (!ft_strcmp("cd",args[0]))
+		return (cd(args + 1));
 	// if (!ft_strcmp("echo", args[0]))
 	// 	return (echo(args + 1));
 	// if (!ft_strcmp("env", args[0]))
@@ -65,9 +65,7 @@ void	commands_router(char **commands)
 int 	main(int argc, char **argv, char **env)
 {
 	char	*line;
-	char	**pipes;
 	char	**commands;
-	char	**tokens;
 	(void)argc;
 	(void)argv;
 	while (true)
@@ -86,8 +84,8 @@ int 	main(int argc, char **argv, char **env)
 		// todo : check if all ipes are valid and not ending with a ; or
 		//a char with an undefined behaviour
 		//check_valid_pipes(pipes);
-		commands = ft_split(line, ';');
-		commands_router(commands);
+		if ((commands = parseline(line)))
+			commands_router(commands);
 	}
 	//free_env();
 	return (0);

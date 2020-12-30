@@ -1,0 +1,6 @@
+{
+	"type": "lldb-vscode",
+	"request": "launch",
+	"name": "Debug",
+	"program": "/mnt/c/Users/MoeErradi/minishell/srcs/a.out"
+}

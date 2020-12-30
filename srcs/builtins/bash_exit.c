@@ -6,11 +6,12 @@
 /*   By: moerradi <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 20:39:54 by moerradi          #+#    #+#             */
-/*   Updated: 2020/12/29 20:55:05 by moerradi         ###   ########.fr       */
+/*   Updated: 2020/12/29 22:06:56 by moerradi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+
 
 int		bash_exit(char **args)
 {
@@ -31,7 +32,5 @@ int		bash_exit(char **args)
 		exit(ft_atoi(args[0]));
 	}
 	else if (arg_count > 1)
-	{
 		ft_putendl_fd("exit: too many arguments", 1);
-	}
 }
