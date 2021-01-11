@@ -6,7 +6,7 @@
 /*   By: moerradi <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 00:00:25 by moerradi          #+#    #+#             */
-/*   Updated: 2020/12/31 00:05:19 by moerradi         ###   ########.fr       */
+/*   Updated: 2021/01/06 01:07:11 by moerradi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,10 @@
 # include <signal.h>
 # include <dirent.h>
 # include <stdbool.h>
-# include "../libft/libft.h"
+# include <string.h>
 # include <errno.h>
+# include "../ft_printf/includes/libftprintf.h"
 
-typedef struct		s_envvar
-{
-	char			*key;
-	char			*value;
-}					t_envvar;
-
-typedef struct		s_env
-{
-	t_envvar		*var;
-	struct	s_env	*next;
-}					t_env;
 // general stctur that will contain all we need
 typedef struct		s_msh
 {

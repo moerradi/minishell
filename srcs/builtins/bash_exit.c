@@ -6,7 +6,7 @@
 /*   By: moerradi <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 20:39:54 by moerradi          #+#    #+#             */
-/*   Updated: 2020/12/29 22:06:56 by moerradi         ###   ########.fr       */
+/*   Updated: 2021/01/06 00:18:07 by moerradi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ int		bash_exit(char **args)
 		exit(ft_atoi(args[0]));
 	}
 	else if (arg_count > 1)
-		ft_putendl_fd("exit: too many arguments", 1);
+		ft_printf("exit: too many arguments\n");
 }

@@ -6,12 +6,11 @@
 /*   By: moerradi <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 18:24:02 by moerradi          #+#    #+#             */
-/*   Updated: 2020/12/31 00:16:43 by moerradi         ###   ########.fr       */
+/*   Updated: 2021/01/06 02:49:56 by moerradi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
-#include <stdio.h>
 // main shell loop
 // remembre these are the allowed functions : malloc, free, write, open, read, close, fork, wait,
 //waitpid, wait3, wait4, signal, kill, exit, getcwd,
@@ -66,8 +65,12 @@ int 	main(int argc, char **argv, char **env)
 {
 	char	*line;
 	char	**commands;
+	t_list	*envvs;
+
 	(void)argc;
 	(void)argv;
+	if (!(envvs = ft_lstnew("?=0")))
+		return (-1);
 	while (true)
 	{
 		signal(SIGINT, handle_sigs);
@@ -81,10 +84,11 @@ int 	main(int argc, char **argv, char **env)
 		// i will not handle pipes tenporarly to test builtins
 		// i will handle only ';'
 		//pipes = ft_split(line, '|');
-		// todo : check if all ipes are valid and not ending with a ; or
+		// todo : check if all pipes are valid and not ending with a ; or
 		//a char with an undefined behaviour
 		//check_valid_pipes(pipes);
-		if ((commands = parseline(line)))
+		//using split temporarly to test builtins
+		if ((commands = ft_split(line, ';')))
 			commands_router(commands);
 	}
 	//free_env();
